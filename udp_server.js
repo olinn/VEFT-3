@@ -6,7 +6,8 @@
 var dgram = require("dgram"),
 	mongo = require("mongoose"),
 	server = dgram.createSocket("udp4"),	
-	message = require('./app/models/message');
+	message = require('./app/models/message'),
+	elasticsearch = require("elasticsearch");
 
 mongo.connect('mongodb://localhost/test');
 
@@ -15,9 +16,10 @@ var db = mongo.connection;
 db.on('error', console.error.bind(console, 'console.error'));
 
 db.once('open', function callback() {
-	//whut
 	console.log('DB open');
 });
+
+var client = new elasticsearch.Client();
 
 //PRocess message
 server.on("message", function(msg, rinfo){
@@ -36,12 +38,23 @@ server.on("message", function(msg, rinfo){
   mess.timestamp = timestampDate;
   mess.token = json.token;
 
-  mess.save(function(err) {
+  mess.save(function(err, b) { 
   	if(err)
   		console.log('Error saving');
   	else
   		console.log("Data saved");
-  })
+  
+
+	client.index({
+		index: 'kodemonkey',
+		type: 'mytype',
+		id: String(b._id),
+		body: mess
+		}, function (error, response) {
+
+	});
+	})
+
 });
 
 
