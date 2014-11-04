@@ -1,0 +1,54 @@
+<div class="well col-md-3 inline">
+	<h2>List of keys</h2>
+	<ul class="list-group">
+		<a href="" class="list-group-item" ng-repeat="key in keys" ng-click="resetDates(key)">{{key}}</a>
+	</ul>
+</div>
+
+<div class="well col-md-9 inline" ng-show="selectedKey">
+	<div class="col-md-6">
+		<h2>{{selectedKey}}</h2>
+		<button type="button" class="btn btn-default" ng-init="showDateFilter=false" ng-click="showDateFilter=!showDateFilter; resetDates(selectedKey)">Filter by date</button>
+	</div>
+	<div class="col-md-6" ng-show="showDateFilter">
+		
+		<div class="row" style="display:inline-block">
+			<div class="col-md-2">From</div>
+			<div class="col-md-10">
+				<p class="input-group">
+				  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="startDate" is-open="opened1" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="open($event, 'opened1')"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</p>
+			</div>
+		</div>
+		<div class="row" style="display:inline-block">
+			<div class="col-md-2">To</div>
+				<div class="col-md-10">
+				<p class="input-group">
+				  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="endDate" is-open="opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+				  <span class="input-group-btn">
+					<button type="button" class="btn btn-default" ng-click="open($event, 'opened2')"><i class="glyphicon glyphicon-calendar"></i></button>
+				  </span>
+				</p>
+			</div>
+		</div>
+		<button type="button" class="btn btn-default pull-right" ng-click="getdataFromDates()">Get data</button>
+	</div>
+
+	<div class="row" ng-controller="AppCtrl">
+		<highchart id="chart1" config="chartConfig" class="col-md-12"></highchart>
+	</div>
+
+
+	<div class="col-md-12">
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="detail in keyDetails | orderBy:'timestamp':true" >
+				<p>Execution time: {{detail.execution_time}}</p>
+				<p>Timestamp: {{formatDateShort(detail.timestamp)}}</p>
+			</li>
+		</ul>
+	</div>
+</div>
+
