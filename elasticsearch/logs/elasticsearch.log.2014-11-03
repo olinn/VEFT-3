@@ -1,0 +1,202 @@
+[2014-11-03 19:18:08,886][INFO ][node                     ] [Umbo] version[1.3.4], pid[6648], build[a70f3cc/2014-09-30T09:07:17Z]
+[2014-11-03 19:18:08,886][INFO ][node                     ] [Umbo] initializing ...
+[2014-11-03 19:18:08,889][INFO ][plugins                  ] [Umbo] loaded [], sites []
+[2014-11-03 19:18:10,780][INFO ][node                     ] [Umbo] initialized
+[2014-11-03 19:18:10,780][INFO ][node                     ] [Umbo] starting ...
+[2014-11-03 19:18:10,855][INFO ][transport                ] [Umbo] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.3.36.25:9300]}
+[2014-11-03 19:18:10,869][INFO ][discovery                ] [Umbo] elasticsearch/EXjIM0NqTeKV62LQUZmBsA
+[2014-11-03 19:18:13,883][INFO ][cluster.service          ] [Umbo] new_master [Umbo][EXjIM0NqTeKV62LQUZmBsA][marino-TMS][inet[/10.3.36.25:9300]], reason: zen-disco-join (elected_as_master)
+[2014-11-03 19:18:13,905][INFO ][http                     ] [Umbo] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.3.36.25:9200]}
+[2014-11-03 19:18:13,906][INFO ][node                     ] [Umbo] started
+[2014-11-03 19:18:13,939][INFO ][gateway                  ] [Umbo] recovered [0] indices into cluster_state
+[2014-11-03 19:24:28,856][INFO ][cluster.metadata         ] [Umbo] [entries] creating index, cause [auto(index api)], shards [5]/[1], mappings []
+[2014-11-03 19:24:29,204][DEBUG][action.index             ] [Umbo] [entries][2], node[EXjIM0NqTeKV62LQUZmBsA], [P], s[STARTED]: Failed to execute [index {[entries][entry][1], source[_na_]}]
+org.elasticsearch.index.mapper.MapperParsingException: failed to parse
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:563)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:491)
+	at org.elasticsearch.index.shard.service.InternalIndexShard.prepareIndex(InternalIndexShard.java:397)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:191)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction.performOnPrimary(TransportShardReplicationOperationAction.java:535)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction$1.run(TransportShardReplicationOperationAction.java:434)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.ElasticsearchParseException: Failed to derive xcontent from (offset=0, length=84): [10, 34, 116, 105, 116, 108, 101, 34, 58, 32, 34, 72, 114, 101, 115, 115, 105, 75, 105, 115, 105, 34, 44, 10, 34, 99, 111, 110, 116, 101, 110, 116, 34, 58, 32, 34, 83, 117, 109, 97, 100, 97, 103, 97, 32, 101, 114, 32, 104, 97, 110, 110, 32, 104, 114, 101, 115, 115, 44, 32, 101, 110, 32, 97, 108, 108, 115, 32, 101, 107, 107, 105, 32, 97, 108, 108, 97, 32, 100, 97, 103, 97, 34, 125]
+	at org.elasticsearch.common.xcontent.XContentFactory.xContent(XContentFactory.java:195)
+	at org.elasticsearch.common.xcontent.XContentHelper.createParser(XContentHelper.java:69)
+	at org.elasticsearch.common.xcontent.XContentHelper.createParser(XContentHelper.java:47)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:505)
+	... 8 more
+[2014-11-03 19:24:50,467][INFO ][cluster.metadata         ] [Umbo] [entries] update_mapping [entry] (dynamic)
+[2014-11-03 19:35:03,523][INFO ][cluster.metadata         ] [Umbo] [entries] deleting index
+[2014-11-03 19:35:03,572][INFO ][cluster.metadata         ] [Umbo] [entries] creating index, cause [auto(index api)], shards [5]/[1], mappings []
+[2014-11-03 19:35:03,827][INFO ][cluster.metadata         ] [Umbo] [entries] update_mapping [entry] (dynamic)
+[2014-11-03 20:54:42,764][DEBUG][action.admin.indices.create] [Umbo] [KodemonKey] failed to create
+org.elasticsearch.indices.InvalidIndexNameException: [KodemonKey] Invalid index name [KodemonKey], must be lowercase
+	at org.elasticsearch.cluster.metadata.MetaDataCreateIndexService.validateIndexName(MetaDataCreateIndexService.java:179)
+	at org.elasticsearch.cluster.metadata.MetaDataCreateIndexService.validate(MetaDataCreateIndexService.java:539)
+	at org.elasticsearch.cluster.metadata.MetaDataCreateIndexService.access$100(MetaDataCreateIndexService.java:89)
+	at org.elasticsearch.cluster.metadata.MetaDataCreateIndexService$2.execute(MetaDataCreateIndexService.java:229)
+	at org.elasticsearch.cluster.service.InternalClusterService$UpdateTask.run(InternalClusterService.java:328)
+	at org.elasticsearch.common.util.concurrent.PrioritizedEsThreadPoolExecutor$TieBreakingPrioritizedRunnable.run(PrioritizedEsThreadPoolExecutor.java:153)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2014-11-03 20:56:04,143][INFO ][cluster.metadata         ] [Umbo] [kodemonkey] creating index, cause [auto(index api)], shards [5]/[1], mappings []
+[2014-11-03 20:56:04,398][DEBUG][action.index             ] [Umbo] [kodemonkey][4], node[EXjIM0NqTeKV62LQUZmBsA], [P], s[STARTED]: Failed to execute [index {[kodemonkey][mytype][666], source[{"token":"test-token","timestamp":"2014-11-03T20:56:04.000Z","execution_time":0.03814697265625,"key":"666","_id":"5457ebe4ce6171f32a000001"}]}]
+org.elasticsearch.index.mapper.MapperParsingException: failed to parse [_id]
+	at org.elasticsearch.index.mapper.core.AbstractFieldMapper.parse(AbstractFieldMapper.java:414)
+	at org.elasticsearch.index.mapper.internal.IdFieldMapper.parse(IdFieldMapper.java:291)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.serializeValue(ObjectMapper.java:648)
+	at org.elasticsearch.index.mapper.object.ObjectMapper.parse(ObjectMapper.java:501)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:542)
+	at org.elasticsearch.index.mapper.DocumentMapper.parse(DocumentMapper.java:491)
+	at org.elasticsearch.index.shard.service.InternalIndexShard.prepareIndex(InternalIndexShard.java:397)
+	at org.elasticsearch.action.index.TransportIndexAction.shardOperationOnPrimary(TransportIndexAction.java:191)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction.performOnPrimary(TransportShardReplicationOperationAction.java:535)
+	at org.elasticsearch.action.support.replication.TransportShardReplicationOperationAction$AsyncShardOperationAction$1.run(TransportShardReplicationOperationAction.java:434)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.elasticsearch.index.mapper.MapperParsingException: Provided id [666] does not match the content one [5457ebe4ce6171f32a000001]
+	at org.elasticsearch.index.mapper.internal.IdFieldMapper.parseCreateField(IdFieldMapper.java:306)
+	at org.elasticsearch.index.mapper.core.AbstractFieldMapper.parse(AbstractFieldMapper.java:404)
+	... 12 more
+[2014-11-03 20:59:32,098][INFO ][cluster.metadata         ] [Umbo] [kodemonkey] update_mapping [mytype] (dynamic)
+[2014-11-03 21:13:44,888][INFO ][node                     ] [Umbo] stopping ...
+[2014-11-03 21:13:44,893][WARN ][index.engine.internal    ] [Umbo] [entries][0] failed to rollback writer on close
+org.apache.lucene.store.NoSuchDirectoryException: directory '/home/marino/Skoli/veft/VEFT-3/elasticsearch-1.3.4/data/elasticsearch/nodes/0/indices/entries/0/index' does not exist
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:218)
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:242)
+	at org.apache.lucene.store.FileSwitchDirectory.listAll(FileSwitchDirectory.java:87)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.elasticsearch.index.store.DistributorDirectory.listAll(DistributorDirectory.java:88)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:343)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:379)
+	at org.apache.lucene.index.IndexWriter.rollbackInternal(IndexWriter.java:2198)
+	at org.apache.lucene.index.IndexWriter.rollback(IndexWriter.java:2136)
+	at org.elasticsearch.index.engine.internal.InternalEngine.close(InternalEngine.java:1270)
+	at org.elasticsearch.index.service.InternalIndexService.removeShard(InternalIndexService.java:402)
+	at org.elasticsearch.index.service.InternalIndexService$1.run(InternalIndexService.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2014-11-03 21:13:44,895][WARN ][index.engine.internal    ] [Umbo] [entries][3] failed to rollback writer on close
+org.apache.lucene.store.NoSuchDirectoryException: directory '/home/marino/Skoli/veft/VEFT-3/elasticsearch-1.3.4/data/elasticsearch/nodes/0/indices/entries/3/index' does not exist
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:218)
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:242)
+	at org.apache.lucene.store.FileSwitchDirectory.listAll(FileSwitchDirectory.java:87)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.elasticsearch.index.store.DistributorDirectory.listAll(DistributorDirectory.java:88)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:343)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:379)
+	at org.apache.lucene.index.IndexWriter.rollbackInternal(IndexWriter.java:2198)
+	at org.apache.lucene.index.IndexWriter.rollback(IndexWriter.java:2136)
+	at org.elasticsearch.index.engine.internal.InternalEngine.close(InternalEngine.java:1270)
+	at org.elasticsearch.index.service.InternalIndexService.removeShard(InternalIndexService.java:402)
+	at org.elasticsearch.index.service.InternalIndexService$1.run(InternalIndexService.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2014-11-03 21:13:44,896][WARN ][index.engine.internal    ] [Umbo] [entries][4] failed to rollback writer on close
+org.apache.lucene.store.NoSuchDirectoryException: directory '/home/marino/Skoli/veft/VEFT-3/elasticsearch-1.3.4/data/elasticsearch/nodes/0/indices/entries/4/index' does not exist
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:218)
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:242)
+	at org.apache.lucene.store.FileSwitchDirectory.listAll(FileSwitchDirectory.java:87)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.elasticsearch.index.store.DistributorDirectory.listAll(DistributorDirectory.java:88)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:343)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:379)
+	at org.apache.lucene.index.IndexWriter.rollbackInternal(IndexWriter.java:2198)
+	at org.apache.lucene.index.IndexWriter.rollback(IndexWriter.java:2136)
+	at org.elasticsearch.index.engine.internal.InternalEngine.close(InternalEngine.java:1270)
+	at org.elasticsearch.index.service.InternalIndexService.removeShard(InternalIndexService.java:402)
+	at org.elasticsearch.index.service.InternalIndexService$1.run(InternalIndexService.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2014-11-03 21:13:44,897][WARN ][index.engine.internal    ] [Umbo] [entries][2] failed to rollback writer on close
+org.apache.lucene.store.NoSuchDirectoryException: directory '/home/marino/Skoli/veft/VEFT-3/elasticsearch-1.3.4/data/elasticsearch/nodes/0/indices/entries/2/index' does not exist
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:218)
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:242)
+	at org.apache.lucene.store.FileSwitchDirectory.listAll(FileSwitchDirectory.java:87)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.elasticsearch.index.store.DistributorDirectory.listAll(DistributorDirectory.java:88)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:343)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:379)
+	at org.apache.lucene.index.IndexWriter.rollbackInternal(IndexWriter.java:2198)
+	at org.apache.lucene.index.IndexWriter.rollback(IndexWriter.java:2136)
+	at org.elasticsearch.index.engine.internal.InternalEngine.close(InternalEngine.java:1270)
+	at org.elasticsearch.index.service.InternalIndexService.removeShard(InternalIndexService.java:402)
+	at org.elasticsearch.index.service.InternalIndexService$1.run(InternalIndexService.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2014-11-03 21:13:44,898][WARN ][index.engine.internal    ] [Umbo] [entries][1] failed to rollback writer on close
+org.apache.lucene.store.NoSuchDirectoryException: directory '/home/marino/Skoli/veft/VEFT-3/elasticsearch-1.3.4/data/elasticsearch/nodes/0/indices/entries/1/index' does not exist
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:218)
+	at org.apache.lucene.store.FSDirectory.listAll(FSDirectory.java:242)
+	at org.apache.lucene.store.FileSwitchDirectory.listAll(FileSwitchDirectory.java:87)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.elasticsearch.index.store.DistributorDirectory.listAll(DistributorDirectory.java:88)
+	at org.apache.lucene.store.FilterDirectory.listAll(FilterDirectory.java:48)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:343)
+	at org.apache.lucene.index.IndexFileDeleter.refresh(IndexFileDeleter.java:379)
+	at org.apache.lucene.index.IndexWriter.rollbackInternal(IndexWriter.java:2198)
+	at org.apache.lucene.index.IndexWriter.rollback(IndexWriter.java:2136)
+	at org.elasticsearch.index.engine.internal.InternalEngine.close(InternalEngine.java:1270)
+	at org.elasticsearch.index.service.InternalIndexService.removeShard(InternalIndexService.java:402)
+	at org.elasticsearch.index.service.InternalIndexService$1.run(InternalIndexService.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+[2014-11-03 21:13:44,911][INFO ][node                     ] [Umbo] stopped
+[2014-11-03 21:13:44,911][INFO ][node                     ] [Umbo] closing ...
+[2014-11-03 21:13:44,914][INFO ][node                     ] [Umbo] closed
+[2014-11-03 21:13:46,937][INFO ][node                     ] [Apryll] version[1.3.4], pid[11899], build[a70f3cc/2014-09-30T09:07:17Z]
+[2014-11-03 21:13:46,938][INFO ][node                     ] [Apryll] initializing ...
+[2014-11-03 21:13:46,940][INFO ][plugins                  ] [Apryll] loaded [], sites []
+[2014-11-03 21:13:48,733][INFO ][node                     ] [Apryll] initialized
+[2014-11-03 21:13:48,734][INFO ][node                     ] [Apryll] starting ...
+[2014-11-03 21:13:48,802][INFO ][transport                ] [Apryll] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.3.36.25:9300]}
+[2014-11-03 21:13:48,811][INFO ][discovery                ] [Apryll] elasticsearch/RZa1YbpVSNqd_zY0lkXy3Q
+[2014-11-03 21:13:51,819][INFO ][cluster.service          ] [Apryll] new_master [Apryll][RZa1YbpVSNqd_zY0lkXy3Q][marino-TMS][inet[/10.3.36.25:9300]], reason: zen-disco-join (elected_as_master)
+[2014-11-03 21:13:51,832][INFO ][http                     ] [Apryll] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.3.36.25:9200]}
+[2014-11-03 21:13:51,833][INFO ][node                     ] [Apryll] started
+[2014-11-03 21:13:52,186][INFO ][gateway                  ] [Apryll] recovered [1] indices into cluster_state
+[2014-11-03 21:13:57,960][INFO ][cluster.metadata         ] [Apryll] [kodemonkey] creating index, cause [auto(index api)], shards [5]/[1], mappings []
+[2014-11-03 21:13:58,240][INFO ][cluster.metadata         ] [Apryll] [kodemonkey] update_mapping [mytype] (dynamic)
+[2014-11-03 21:39:11,797][INFO ][node                     ] [Apryll] stopping ...
+[2014-11-03 21:39:11,857][INFO ][node                     ] [Apryll] stopped
+[2014-11-03 21:39:11,858][INFO ][node                     ] [Apryll] closing ...
+[2014-11-03 21:39:11,860][INFO ][node                     ] [Apryll] closed
+[2014-11-03 21:39:32,268][INFO ][node                     ] [Kem Horkus] version[1.3.4], pid[13086], build[a70f3cc/2014-09-30T09:07:17Z]
+[2014-11-03 21:39:32,269][INFO ][node                     ] [Kem Horkus] initializing ...
+[2014-11-03 21:39:32,272][INFO ][plugins                  ] [Kem Horkus] loaded [], sites []
+[2014-11-03 21:39:34,138][INFO ][node                     ] [Kem Horkus] initialized
+[2014-11-03 21:39:34,139][INFO ][node                     ] [Kem Horkus] starting ...
+[2014-11-03 21:39:34,212][INFO ][transport                ] [Kem Horkus] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/10.3.36.25:9300]}
+[2014-11-03 21:39:34,222][INFO ][discovery                ] [Kem Horkus] elasticsearch/p-KrB2a2T9ukVeZQ0ZR74A
+[2014-11-03 21:39:37,229][INFO ][cluster.service          ] [Kem Horkus] new_master [Kem Horkus][p-KrB2a2T9ukVeZQ0ZR74A][marino-TMS][inet[/10.3.36.25:9300]], reason: zen-disco-join (elected_as_master)
+[2014-11-03 21:39:37,244][INFO ][http                     ] [Kem Horkus] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/10.3.36.25:9200]}
+[2014-11-03 21:39:37,245][INFO ][node                     ] [Kem Horkus] started
+[2014-11-03 21:39:37,647][INFO ][gateway                  ] [Kem Horkus] recovered [2] indices into cluster_state
+[2014-11-03 21:39:51,898][INFO ][node                     ] [Kem Horkus] stopping ...
+[2014-11-03 21:39:51,943][INFO ][node                     ] [Kem Horkus] stopped
+[2014-11-03 21:39:51,944][INFO ][node                     ] [Kem Horkus] closing ...
+[2014-11-03 21:39:51,946][INFO ][node                     ] [Kem Horkus] closed
+[2014-11-03 23:26:12,296][INFO ][node                     ] [Nicole St. Croix] version[1.3.4], pid[14788], build[a70f3cc/2014-09-30T09:07:17Z]
+[2014-11-03 23:26:12,297][INFO ][node                     ] [Nicole St. Croix] initializing ...
+[2014-11-03 23:26:12,299][INFO ][plugins                  ] [Nicole St. Croix] loaded [], sites []
+[2014-11-03 23:26:14,130][INFO ][node                     ] [Nicole St. Croix] initialized
+[2014-11-03 23:26:14,130][INFO ][node                     ] [Nicole St. Croix] starting ...
+[2014-11-03 23:26:14,218][INFO ][transport                ] [Nicole St. Croix] bound_address {inet[/0:0:0:0:0:0:0:0:9300]}, publish_address {inet[/192.168.1.123:9300]}
+[2014-11-03 23:26:14,229][INFO ][discovery                ] [Nicole St. Croix] elasticsearch/wdSCyCGbQ0q3Rk-N8VP1ZA
+[2014-11-03 23:26:17,241][INFO ][cluster.service          ] [Nicole St. Croix] new_master [Nicole St. Croix][wdSCyCGbQ0q3Rk-N8VP1ZA][marino-TMS][inet[/192.168.1.123:9300]], reason: zen-disco-join (elected_as_master)
+[2014-11-03 23:26:17,275][INFO ][http                     ] [Nicole St. Croix] bound_address {inet[/0:0:0:0:0:0:0:0:9200]}, publish_address {inet[/192.168.1.123:9200]}
+[2014-11-03 23:26:17,275][INFO ][node                     ] [Nicole St. Croix] started
+[2014-11-03 23:26:17,663][INFO ][gateway                  ] [Nicole St. Croix] recovered [2] indices into cluster_state
