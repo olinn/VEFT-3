@@ -9,7 +9,8 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	Message = require('./app/models/message')
 	mongoose = require('mongoose'),
-	elasticsearch = require("elasticsearch");
+	elasticsearch = require("elasticsearch"),
+	cors = require('cors');
 
 var app = express();
 
@@ -26,6 +27,7 @@ var client = new elasticsearch.Client();
 //configure app to use body parser
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 var port = process.env.PORT || 8080;
 
@@ -117,7 +119,7 @@ router.route('/keys/:key_id/time')
 					var filtered = [];
 					for(var i = 0; i < Object.keys(mess).length; i++) {
 						console.log(mess);
-						filtered.push({"execution_time":mess[i].execution_time,
+						filtered.push({"execution_time:":mess[i].execution_time,
 										"timestamp":mess[i].timestamp });
 					}
 					res.json(filtered);
